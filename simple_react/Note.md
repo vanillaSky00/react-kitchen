@@ -35,3 +35,98 @@ native wind?
 we can define css property in container
 
 link is like anchor in web and is not coming from react native, is from expo router pakcage
+
+what is _layout.jsx
+
+Slot
+Stack
+
+if the stack need flexibility like custom management of stack h then it can be opening 
+```
+<Stack>
+    <Stack.Screen />
+</Stack>
+```
+
+
+
+
+restart
+```
+lsof -i :8081
+kill <pid>
+```
+
+make the opening tag closing
+```
+const ThemeView = ({ style, children, ...props }) => {
+  const colorScheme = useColorScheme()
+  const theme = Colors[colorScheme] ?? Colors.light
+
+  return (
+    <View style={[{
+      backgroundColor: theme.background}, style]}
+      {...props}
+    >
+    {children}
+    </View>
+  )
+}
+```
+and the self-closing would make react render its children automatically
+```
+const ThemeView = ({ style, ...props }) => {
+  const colorScheme = useColorScheme()
+  const theme = Colors[colorScheme] ?? Colors.light
+
+  return (
+    <View style={[{
+      backgroundColor: theme.background}, style]}
+      {...props}
+    />
+  )
+}
+```
+
+```
+const ThemeView = ({ style, children, ...props }) => {
+  const colorScheme = useColorScheme()
+  const theme = Colors[colorScheme] ?? Colors.light
+
+  return (
+    <View style={[{
+      backgroundColor: theme.background}, style]}
+      {...props}
+    />
+      
+    
+  )
+}
+```
+
+
+
+becarful the overwrite
+the `source={Logo}` got overwrite by Home
+```
+const Home = () => {
+  return (
+    <ThemedView style={styles.container}>
+        <ThemedLogo source={Logo} style={styles.img}/>
+      ...
+    </ThemedView>
+  )
+}
+```
+Where in `ThemedLogo.jsx`
+```
+const ThemedLogo = ({ ...props }) => {
+  const colorScheme = useColorScheme()
+
+  const logo = colorScheme === 'dark' ? DarkLogo : LightLogo
+
+  return (
+    <Image source={logo} {...props}/>
+  )
+}
+```
