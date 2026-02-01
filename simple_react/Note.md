@@ -130,3 +130,14 @@ const ThemedLogo = ({ ...props }) => {
   )
 }
 ```
+
+in layout we can have options
+```   
+<Stack> 
+  <Stack.Screen name='contact' options={{ title: 'Contact', headerShown: false}}/>
+</Stack> 
+
+```
+
+
+routes group is used when the project has so many pages, we have to group it

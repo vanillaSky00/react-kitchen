@@ -1,29 +1,36 @@
 import { StyleSheet, Text, View} from 'react-native'
-import React from 'react'
-import Logo from '../assets/favicon.png'
 import { Link } from 'expo-router'
 
 // themed components
-import ThemedView from '../components/ThemedView'
 import ThemedLogo from '../components/ThemedLogo'
+import ThemedView from '../components/ThemedView'
+import ThemedText from '../components/ThemedText'
 import Spacer from '../components/Spacer'
 
 
 const Home = () => {
   return (
     <ThemedView style={styles.container}>
-        <ThemedLogo style={styles.img}/>
-      <Text style={styles.title}>The Number 1</Text>
+        <ThemedLogo />
+        <Spacer height={20} />
+
+      <ThemedText style={styles.title} title={true}>
+        The Number 1
+      </ThemedText>
 
       <Spacer height={10}/>
-      <Text>Reading List App</Text>
+      <ThemedText>Reading List App</ThemedText>
       <Spacer />
         <View style={styles.card}>
-            <Text >Hello, this is a card.</Text>
+            <ThemedText>Hello, this is a card.</ThemedText>
         </View>
     
-      <Link href="/about" style={styles.link}>About Page</Link>
-      <Link href="/contact" style={styles.link}>Contact Page</Link>
+      <Link href="/login" style={styles.link}>
+        <ThemedText>Login Page</ThemedText>
+      </Link>
+      <Link href="/register" style={styles.link}>
+        <ThemedText>Register Page</ThemedText>
+      </Link>
     </ThemedView>
   )
 }
@@ -45,9 +52,6 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 5,
         boxShadow: '4px 4px rgba(0,0,0,0.1)'
-    },
-    img: {
-        marginVertical: 20
     },
     link: {
         marginVertical: 10,
