@@ -4,10 +4,10 @@ import { StatusBar } from 'react-native'
 export default function AuthLayout() {
 
     return (
-        <>
-            <StatusBar style='auto'/>
-            <Stack screenOptions={{ headerShown: false, animation: "none"}}
-            /> 
-        </>
+      <>
+        <StatusBar style='auto'/>
+        <Stack screenOptions={{ headerShown: true, animation: "none"}}
+        /> 
+      </>
     )
 }
