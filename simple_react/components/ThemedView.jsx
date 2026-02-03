@@ -8,7 +8,7 @@ const ThemedView = ({ style, safe=false, ...props }) => {
 
   if (!safe) return (
     <View 
-      style={[{ backgroundColor: theme.uiBackground}, style]}
+      style={[{ backgroundColor: theme.background}, style]}
       {...props}
     />
   )
@@ -18,7 +18,7 @@ const ThemedView = ({ style, safe=false, ...props }) => {
   return (
     <View
       style={[{ 
-        backgroundColor: theme.uiBackground,
+        backgroundColor: theme.background,
         paddingTop: insets.top,
         paddingBottom: insets.bottom
       }, 

@@ -21,10 +21,7 @@ const Home = () => {
       <Spacer height={10}/>
       <ThemedText>Reading List App</ThemedText>
       <Spacer />
-        <View style={styles.card}>
-            <ThemedText>Hello, this is a card.</ThemedText>
-        </View>
-    
+
       <Link href="/login" style={styles.link}>
         <ThemedText>Login Page</ThemedText>
       </Link>

@@ -175,3 +175,28 @@ style={obj|array|fn} = “give the tag styling”
 
 
 Safe area
+
+
+How to setup with appwrite:
+We can do with appwrite's official start project but instead we can manually:
+```
+npx expo install react-native-appwrite react-native-url-polyfill
+```
+create a `lib/appwrite.js`
+```
+import { Client, Account, ID } from 'react-native-appwrite'
+
+const client = Client()
+    .setProject('697f2d67000e71817454')
+    .setPlatform('dev.vanillasky.simple_react')
+```
+
+```js
+//use status
+```
+
+```js
+<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+
+</TouchableWithoutFeedback>
+```
