@@ -141,3 +141,37 @@ in layout we can have options
 
 
 routes group is used when the project has so many pages, we have to group it
+
+tab's navigation systems
+
+
+Self-closing tag: use when having no childeren
+```js
+<Pressable onPress={...} />
+```
+<br>
+
+Open/close tag: use when having children inside it.
+```js
+<Pressable onPress={...}>
+  <Text>Click</Text>
+</Pressable>
+```
+
+
+<Tag ...> = layout structure
+
+{ ... } = “JS hole” (put JS here)
+
+onPress={fn} = “give the tag a function”
+
+style={obj|array|fn} = “give the tag styling”
+```js
+<View style={{ padding: 10 }} /> //Object
+<View style={styles.box} /> //StyleSheet reference
+<View style={[styles.box, isBig && styles.big]} /> // Array (merge styles)
+<Pressable style={({ pressed }) => [styles.btn, pressed && styles.pressed]} /> //Function (Pressable special)
+```
+
+
+Safe area
