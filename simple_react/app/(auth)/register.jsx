@@ -8,13 +8,21 @@ import ThemedButton from '../../components/ThemedButton'
 import ThemedView from '../../components/ThemedView'
 import ThemedText from '../../components/ThemedText'
 import ThemedTextInput from '../../components/ThemedTextInput'
+import { useUser } from '../../hooks/useUser'
 
 const Register = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSubmit = () => {
-    console.log("register from submit", email, password)
+  const { register } = useUser() 
+
+  const handleSubmit = async () => {
+    try {
+      await register(email, password)
+      console.log('current user is:', user)
+    } catch (error) {
+
+    }
   }
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>

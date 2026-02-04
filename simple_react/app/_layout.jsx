@@ -8,6 +8,7 @@ const RootLayout = () => {
     const colorScheme = useColorScheme()
     const theme = Colors[colorScheme] ?? Colors.light
 
+    
     return (
         <UserProvider>
           <StatusBar value='auto'/>
@@ -16,7 +17,7 @@ const RootLayout = () => {
               headerTintColor: theme.title,
             }}>
               <Stack.Screen name='(auth)' options={{ headerShown: false }}/>
-              <Stack.Screen name='index' options={{ title: 'Home'}}/>
+              <Stack.Screen name='index' options={{ title: 'Home' }}/>
               <Stack.Screen name='(dashboard)' options={{ headerShown: false }}/>
           </Stack> 
         </UserProvider>
