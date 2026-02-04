@@ -9,12 +9,16 @@ import ThemedButton from '../../components/ThemedButton'
 import ThemedView from '../../components/ThemedView'
 import ThemedText from '../../components/ThemedText'
 import ThemedTextInput from '../../components/ThemedTextInput'
+import { useUser } from '../../hooks/useUser'
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const { user } = useUser()
+
   const handleSubmit = () => {
+    console.log('current user:', user)
     console.log('register from submitted', email, password)
   }
   return (

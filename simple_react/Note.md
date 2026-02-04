@@ -200,3 +200,37 @@ const client = Client()
 
 </TouchableWithoutFeedback>
 ```
+
+
+
+react hook
+https://www.youtube.com/watch?v=rysTbzKOEO0
+
+
+dom virtual dom is a in-memory copy of the DOM
+the manipulation of DOM is costly: traverse, update, re-render
+so react update virtual DOM partially(quick in-memory based on algorithm), later it would sync with the real DOM
+
+react use batch update algorithm to update the many stage of change copy of the virtual dom, the algprithm would amount the total change and update to the original dom based on react algorithm at a certain point
+
+the sync called reconcillation
+
+so this rendering strategy would not make the performance down, since we update in a frequency and also not traversing each time
+
+diffic algorithm calculate diff
+
+12 - ReactJS Virtual DOM - What are Virtual DOM, Reconciliation, Diffing, and Batch Update in React?
+https://www.youtube.com/watch?v=rysTbzKOEO0
+
+
+what is react hook
+react hooks are simple function that can help to separate reusable part from a
+functional components. It can be stateful and can manage side effect
+
+why do we need it
+compared to plain utils js funciton, react hooks can access to many other capability like state
+
+
+what is context in react
+
+why do we need it?
