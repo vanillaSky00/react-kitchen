@@ -234,3 +234,16 @@ compared to plain utils js funciton, react hooks can access to many other capabi
 what is context in react
 
 why do we need it?
+
+
+
+
+
+appwrite
+we will encounter a situation where the backend still has an active session after the app reload but
+the frontend has not, since reload cause all the variable to in context to its initial value, only use login will change,
+So how do we get the currently active session backc when the application first staarts?
+
+
+## protecting routes
+why?, if you are not login and access dashboard, it will reroute you to login page
