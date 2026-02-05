@@ -4,23 +4,23 @@ import { useUser } from "../../hooks/useUser"
 
 import ThemedLoader from '../../components/ThemedLoader'
 
-const UserOnly = ({ children }) => {
+const GuestOnly = ({ children }) => {
     const { user, authChecked } = useUser()
     const router = useRouter()
 
     useEffect(() => {
-        if (authChecked && user === null) {
-            router.replace('/login')
-        } 
-    }, [user, authChecked]) // whenever these 2 values change, invoke the hook
+        if (authChecked && user !== null) {
+            router.replace('/profile')
+        }
+    }, [user, authChecked])
 
-    if (!authChecked || !user) {
+    if (!authChecked || user) {
         return (
-            <ThemedLoader />
+          <ThemedLoader />
         )
     }
 
     return children
 }
 
-export default UserOnly
+export default GuestOnly
