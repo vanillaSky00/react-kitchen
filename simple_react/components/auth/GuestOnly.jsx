@@ -1,7 +1,9 @@
-import { Text } from "react-native"
 import { useRouter } from "expo-router"
-import { useUser } from "../../hooks/useUser"
 import { useEffect } from "react"
+import { useUser } from "../../hooks/useUser"
+
+import ThemedLoader from '../../components/ThemedLoader'
+import ThemedView from "../ThemedView"
 
 const GuestOnly = ({ children }) => {
     const { user, authChecked } = useUser()
@@ -15,7 +17,13 @@ const GuestOnly = ({ children }) => {
 
     if (!authChecked || user) {
         return (
-          <Text>Loading</Text>
+          <ThemedView style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}>
+            <ThemedLoader />
+          </ThemedView>
         )
     }
 

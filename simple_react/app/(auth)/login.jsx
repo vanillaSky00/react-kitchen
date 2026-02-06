@@ -10,6 +10,7 @@ import ThemedView from '../../components/ThemedView'
 import ThemedText from '../../components/ThemedText'
 import ThemedTextInput from '../../components/ThemedTextInput'
 import { useUser } from '../../hooks/useUser'
+import ThemedLoader from '../../components/ThemedLoader'
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -65,7 +66,6 @@ const Login = () => {
               Register instead
           </ThemedText>
         </Link>
-
       </ThemedView>
     </TouchableWithoutFeedback>
   )
