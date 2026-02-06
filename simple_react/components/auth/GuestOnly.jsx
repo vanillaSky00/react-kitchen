@@ -3,7 +3,6 @@ import { useEffect } from "react"
 import { useUser } from "../../hooks/useUser"
 
 import ThemedLoader from '../../components/ThemedLoader'
-import ThemedView from "../ThemedView"
 
 const GuestOnly = ({ children }) => {
     const { user, authChecked } = useUser()
@@ -17,13 +16,7 @@ const GuestOnly = ({ children }) => {
 
     if (!authChecked || user) {
         return (
-          <ThemedView style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}>
-            <ThemedLoader />
-          </ThemedView>
+          <ThemedLoader />
         )
     }
 

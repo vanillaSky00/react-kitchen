@@ -247,3 +247,29 @@ So how do we get the currently active session backc when the application first s
 
 ## protecting routes
 why?, if you are not login and access dashboard, it will reroute you to login page
+
+
+
+https://appwrite.io/blog/post/integrate-sql-nosql-vector-graph-or-any-database-into-your-appwrite-project
+
+
+
+# JS
+Arrow function
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+
+# Appwrite
+## db
+https://www.youtube.com/watch?v=wBq81CAfn9M
+https://appwrite.io/docs/references/cloud/client-react-native/databases
+the latest version:
+```
+const tables = new TablesDB(client)
+
+tables.listRows(...)
+tables.getRow(...)
+tables.createRow(...)
+tables.updateRow(...)
+tables.deleteRow(...)
+```
