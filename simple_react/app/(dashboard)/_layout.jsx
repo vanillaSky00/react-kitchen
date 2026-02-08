@@ -50,6 +50,10 @@ const DashboardLayout = () => {
               />
           )}}
         />
+        <Tabs.Screen 
+          name="books/[id]"
+          options={{ href: null }} // remove the icon button from the dashboard tab
+        />
       </Tabs>
     </UserOnly>
   )

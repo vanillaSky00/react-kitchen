@@ -409,3 +409,9 @@ No. Every time `useEffect` runs, it creates a **brand new scope**.
 They never touch or see each other. React handles calling the cleanup for Version 1 before creating Version 2.
 
 Does that clarify the "secret life" of your variable? It's basically being kept on life support by the cleanup function!
+
+
+## Dynamic routes
+
+we need book id from the route and to access the dynamic path of a route
+we need a hook from expo router which is called `useLocalSearchParams`
