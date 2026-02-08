@@ -61,14 +61,19 @@ export function BooksProvider ({ children }) {
           Permission.delete(Role.user(user.$id))
         ]
       })
-      // setBooks((prev) => [response, ...prev])
+      
     } catch (error) {
       console.log(error.message)
     }
   }
 
-  async function deleteBook() {
+  async function deleteBook(id) {
     try {
+      const response = await databases.deleteRow({
+        databaseId: DATABASE_ID,
+        tableId: TABLE_ID,
+        rowId: id,
+      })
         
     } catch (error) {
       console.log(error.message)
@@ -91,6 +96,9 @@ export function BooksProvider ({ children }) {
           setBooks((prevBooks) => [...prevBooks, payload])
         }
         // Further real-time and multi-device sync logic should be put here
+        if (events.some(e => e.includes("delete"))) {
+          setBooks((prevBooks) => prevBooks.filter((book) => book.$id !== payload.$id))
+        }
       })
       
     }
