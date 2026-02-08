@@ -25,8 +25,8 @@ const BookDetails = () => {
   }
 
   useEffect(() => {
-    setBook(null)
-    
+    setBook(null) // Solve the Stale State problem from the previous book is briefly visible while the new data loads.
+
     async function loadBook() {
       const bookData = await fetchBookById(id)
       setBook(bookData)

@@ -415,3 +415,76 @@ Does that clarify the "secret life" of your variable? It's basically being kept 
 
 we need book id from the route and to access the dynamic path of a route
 we need a hook from expo router which is called `useLocalSearchParams`
+
+
+
+## Stale state and Race Condition
+(By gemini)
+The reason this happens is called **"Stale State"** during the transition.
+
+When you navigate from "Book A" to "Book B" (or change the `id`), your component stays alive (or is reused), so the `book` state variable **still holds the data for Book A** while it waits for `fetchBookById(id)` to finish loading Book B.
+
+Because React re-renders immediately when `id` changes (before the fetch finishes), your `if (!book)` check passes (because `book` is technically not null—it's still Book A!), so it displays the old info.
+
+### The Fix
+
+You must explicitly **reset the state to null** the moment the effect starts. This forces the component to fail the `if (!book)` check and render the `<ThemedLoader />` instead.
+
+Here is the corrected code:
+
+```javascript
+  useEffect(() => {
+    setBook(null); // <--- ADD THIS: Reset state immediately to force the Loader to appear
+
+    async function loadBook() {
+      const bookData = await fetchBookById(id)
+      setBook(bookData)
+    }
+
+    loadBook()
+  }, [id])
+
+```
+
+### Visualizing the Problem
+
+Without `setBook(null)`, the timeline looks like this:
+
+1. **User Clicks Book B:** The `id` changes to `2`.
+2. **React Re-renders:** The component updates. `book` is **still Book A**.
+3. **Check:** `if (!book)` is `false` (Book A exists).
+4. **UI:** Shows **Book A's title** (User gets confused: "Why am I seeing the old book?").
+5. **Fetch Finishes:** `setBook(BookB)` runs.
+6. **UI:** Finally updates to **Book B**.
+
+By adding `setBook(null)`, step 3 becomes true, and the UI shows the loader (Step 4 becomes "Loading..."), which is the correct behavior.
+
+### Bonus: Preventing "Race Conditions"
+
+If a user clicks "Book B" then quickly clicks "Book C" before B finishes loading, you might end up showing Book B's data on Book C's page. To fix this strictly, use a cleanup flag:
+
+```javascript
+  useEffect(() => {
+    setBook(null);
+    let isMounted = true; // Track if this specific effect run is still valid
+
+    async function loadBook() {
+      try {
+        const bookData = await fetchBookById(id)
+        if (isMounted) { // Only set state if we are still on this id
+            setBook(bookData)
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    loadBook()
+
+    // Cleanup function runs if 'id' changes again or component unmounts
+    return () => {
+      isMounted = false; 
+    }
+  }, [id])
+
+```
