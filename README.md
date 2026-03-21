@@ -112,6 +112,6 @@ client
 ```
 
 
-## Screenshots
+<!-- ## Screenshots
 
-> _Add your own screenshots here — light mode, dark mode, book list, create screen._
+> light mode, dark mode, book list, create screen -->
