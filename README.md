@@ -17,14 +17,14 @@ Built with ☕ and too many books to remember.
 
 <br/>
 
-<img src="assets/img/logo_dark.png" alt="Shelfwise Logo" width="200"/>
+<img src="assets/img/logo_dark.png" alt="Afterword Logo" width="200"/>
 
 </div>
 
 
 ## About
 
-**Shelfwise** is a clean, cross-platform mobile app for keeping a personal record of every book you've read or want to read. Sign up, log in, and start building your own digital bookshelf — complete with titles, authors, and descriptions. Data syncs in real-time across devices via Appwrite, so your library is always up to date.
+**Afterword** is a clean, cross-platform mobile app for keeping a personal record of every book you've read or want to read. Sign up, log in, and start building your own digital bookshelf — complete with titles, authors, and descriptions. Data syncs in real-time across devices via Appwrite, so your library is always up to date.
 
 No social features, no recommendations algorithm, no noise. Just you and your books.
 
@@ -90,8 +90,8 @@ No social features, no recommendations algorithm, no noise. Just you and your bo
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/shelfwise.git
-cd shelfwise
+git clone https://github.com/<your-username>/afterword.git
+cd afterword
 
 # Install dependencies
 npm install
